@@ -82,4 +82,8 @@
   .font-heading {
     @apply font-bold tracking-tight leading-8;
   }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -1,3 +1,8 @@
+import PhotoList from "@/components/photo-list";
+import Search from "@/components/search";
+import { buttonVariants } from "@/components/ui/button";
+import { Suspense } from "react";
+
 export default function homePage() {
   return (
     <div>
@@ -17,24 +22,20 @@ export default function homePage() {
             I'm building a web app with Next.js 13 and open sourcing everything.
             Follow along as we figure this out together.
           </p>
-          <div className="space-x-4">
-            <a
-              className="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 rounded-md"
-              href="/login"
-            >
-              Get Started
-            </a>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input hover:bg-accent hover:text-accent-foreground h-11 px-8 rounded-md"
-              href="https://github.com/shadcn/taxonomy"
-            >
-              GitHub
-            </a>
-          </div>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className={buttonVariants({ variant: "default", size: "lg" })}
+            href="https://github.com/soheilghanbary/picsearch"
+          >
+            GitHub
+          </a>
         </div>
       </section>
+      <Search />
+      <Suspense fallback={<p>Loading Photo</p>}>
+        <PhotoList />
+      </Suspense>
     </div>
   );
 }
