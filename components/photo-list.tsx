@@ -6,13 +6,12 @@ import BlurImage from "./blur-image";
 import { Skeleton } from "./ui/skeleton";
 import { Toaster } from "sonner";
 
-const url =
-  "https://api.unsplash.com/photos?per_page=20&client_id=U7DCc9zu9YT3-NDeVLi9if-SB91zIQFXZQxLvxGTqTA";
+const url = `https://api.unsplash.com/photos?per_page=20&client_id=${process.env.API_KEY}`;
 
 const fetcher = async (query: string) => {
   if (query !== "all") {
     const res = await fetch(
-      `https://api.unsplash.com/search/photos?per_page=20&query=${query}&client_id=U7DCc9zu9YT3-NDeVLi9if-SB91zIQFXZQxLvxGTqTA`
+      `https://api.unsplash.com/search/photos?per_page=20&query=${query}&client_id=${process.env.API_KEY}`
     );
     const photos = await res.json();
     return photos.results;
