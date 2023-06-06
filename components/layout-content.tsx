@@ -5,7 +5,7 @@ import Provider from "./provider";
 export default function LayoutContent({ children }: { children: ReactNode }) {
   return (
     <Provider>
-      <section className="container mx-auto p-2">
+      <section className="container mx-auto py-2 px-4">
         <Navbar />
         {children}
       </section>  

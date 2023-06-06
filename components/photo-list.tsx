@@ -1,11 +1,10 @@
 "use client";
 import { searchAtom } from "@/atoms";
-import { HeartIcon } from "lucide-react";
 import useSWR from "swr";
 import { useAtomValue } from "jotai";
-import { useState } from "react";
 import BlurImage from "./blur-image";
 import { Skeleton } from "./ui/skeleton";
+import { Toaster } from "sonner";
 
 const url =
   "https://api.unsplash.com/photos?per_page=20&client_id=U7DCc9zu9YT3-NDeVLi9if-SB91zIQFXZQxLvxGTqTA";
@@ -33,7 +32,7 @@ export default function PhotoList() {
 
   if (isValidating)
     return (
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-4 grid-cols-2 gap-8">
         <Skeleton className="aspect-square bg-muted rounded-lg" />
         <Skeleton className="aspect-square bg-muted rounded-lg" />
         <Skeleton className="aspect-square bg-muted rounded-lg" />
@@ -46,20 +45,17 @@ export default function PhotoList() {
     );
 
   return (
-    <section className="grid grid-cols-4 gap-8">
+    <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-4">
       {!photos.length ? (
         <p>Nothing Photo</p>
       ) : (
-        photos.map((photo) => (
-          <div key={photo.id} className="flex flex-col gap-4">
-            <BlurImage alt="" src={photo.urls.regular} />
-            <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
-              <HeartIcon className="w-5 h-5" />
-              <span>{photo.likes}</span>
-            </div>
+        photos.map((photo: any) => (
+          <div key={photo.id} className="flex flex-col gap-4 relative group">
+            <BlurImage alt={photo.alt_description} src={photo.urls.regular} />
           </div>
         ))
       )}
+      <Toaster richColors />
     </section>
   );
 }

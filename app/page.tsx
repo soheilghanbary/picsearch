@@ -1,4 +1,5 @@
 import PhotoList from "@/components/photo-list";
+import ScrollToTop from "@/components/scroll-top";
 import Search from "@/components/search";
 import { buttonVariants } from "@/components/ui/button";
 import { Suspense } from "react";
@@ -19,7 +20,7 @@ export default function homePage() {
             a Cool photo searcher from all over the world
           </h1>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            I'm building a web app with Next.js 13 and open sourcing everything.
+            I m building a web app with Next.js 13 and open sourcing everything.
             Follow along as we figure this out together.
           </p>
           <a
@@ -36,6 +37,7 @@ export default function homePage() {
       <Suspense fallback={<p>Loading Photo</p>}>
         <PhotoList />
       </Suspense>
+      <ScrollToTop />
     </div>
   );
 }
