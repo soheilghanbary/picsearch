@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import BlurImage from "./blur-image";
 import { Dialog, DialogContent } from "./ui/dialog";
+
 export const photoViewAtom = atom({
   user: { username: "", portfolio_url: "", profile_image: { large: "" } },
   urls: { regular: "" },

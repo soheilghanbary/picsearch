@@ -33,6 +33,7 @@ const RQPhotoList = () => {
     fetchNextPage,
     hasNextPage,
     isLoading,
+    isSuccess,
     isError,
     data: photos,
   } = useInfiniteQuery(
@@ -65,9 +66,10 @@ const RQPhotoList = () => {
 
   return (
     <>
-      <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-4">
+      <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-4 mb-10">
         {renderPhotos()}
         <PhotoView />
+        {hasNextPage && <ProductSkeleton />}
       </section>
       <div ref={ref} />
       <Toaster richColors />
