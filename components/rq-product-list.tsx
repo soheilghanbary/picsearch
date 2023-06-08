@@ -70,9 +70,12 @@ const RQPhotoList = () => {
       <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-4 mb-10">
         {renderPhotos()}
         <PhotoView />
-        {hasNextPage && photos?.pages[0].length ? <ProductSkeleton /> : ""}
       </section>
       <div ref={ref} />
+      <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-4 mb-10">
+        {hasNextPage && photos?.pages[0].length ? <ProductSkeleton /> : ""}
+      </section>
+
       <Toaster position="bottom-left" richColors />
     </>
   );
