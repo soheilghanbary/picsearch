@@ -57,7 +57,8 @@ const RQPhotoList = () => {
   const renderPhotos = () => {
     if (isLoading) return <ProductSkeleton />;
     if (isError) return <p>Error loading photos</p>;
-    if (photos.pages.length === 0) return <p>No photos found</p>;
+    if (photos.pages[0].length === 0)
+      return <p className="mt-10">No photos found</p>;
 
     return photos.pages.map((page) =>
       page.map((photo: any) => <PhotoItem key={photo.id} {...photo} />)
@@ -69,7 +70,7 @@ const RQPhotoList = () => {
       <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-4 mb-10">
         {renderPhotos()}
         <PhotoView />
-        {hasNextPage && <ProductSkeleton />}
+        {hasNextPage && photos?.pages[0].length ? <ProductSkeleton /> : ""}
       </section>
       <div ref={ref} />
       <Toaster richColors />
