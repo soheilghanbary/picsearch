@@ -4,14 +4,14 @@ import { openViewAtom, photoViewAtom } from "./photo-view";
 
 export default function PhotoItem(photo: any) { 
   const [show, setShow] = useAtom(openViewAtom);
-  const setSrc = useSetAtom(photoViewAtom)
+  const setPhoto = useSetAtom(photoViewAtom)
   return (
     <>
       <div
         key={photo.id}
         className="flex flex-col gap-4 relative group"
         onClick={() => {
-          setSrc(photo.urls.regular)
+          setPhoto(photo)
           setShow(!show)
         }}
       >

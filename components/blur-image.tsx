@@ -7,9 +7,10 @@ import { toast } from "sonner";
 interface BlurImageProps {
   src: string;
   alt: string;
+  rounded?: boolean
 }
 
-export default function BlurImage({ src, alt }: BlurImageProps) {
+export default function BlurImage({ src, alt, rounded }: BlurImageProps) {
   const [isLoading, setLoading] = useState(true);
 
   const handleCopy = async () => {
@@ -30,7 +31,7 @@ export default function BlurImage({ src, alt }: BlurImageProps) {
         loading="lazy"
         className={`object-cover rounded-lg duration-500 ease-in-out group-hover:opacity-75 group-hover:scale-110 ${
           isLoading ? "blur-md grayscale" : "blur-0 grayscale-0"
-        }`}
+        } ${rounded ? 'rounded-full' : ''}`}
         onLoadingComplete={() => setLoading(false)}
       />
       <div className="group-hover:opacity-100 opacity-0 transition-all duration-300 absolute text-center p-4 gap-8 flex flex-col justify-center items-center backdrop-blur-sm top-0 left-0 rounded-lg w-full h-full">
