@@ -15,7 +15,7 @@ export default function PhotoItem(photo: any) {
           setShow(!show)
         }}
       >
-        <BlurImage alt={photo.alt_description} src={photo.urls.regular} />
+        <BlurImage alt={photo.alt_description} src={photo.urls.small} />
       </div>
     </>
   );
