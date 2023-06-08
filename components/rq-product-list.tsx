@@ -73,7 +73,7 @@ const RQPhotoList = () => {
         {hasNextPage && photos?.pages[0].length ? <ProductSkeleton /> : ""}
       </section>
       <div ref={ref} />
-      <Toaster richColors />
+      <Toaster position="bottom-left" richColors />
     </>
   );
 };
