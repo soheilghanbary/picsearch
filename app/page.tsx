@@ -1,5 +1,5 @@
 import QueryProvider from "@/components/query-provider";
-import RQPhotoList from "@/components/rq-product-list";
+import RQPhotoList from "@/components/photo-list";
 import ScrollToTop from "@/components/scroll-top";
 import Search from "@/components/search";
 import { buttonVariants } from "@/components/ui/button";
@@ -26,7 +26,7 @@ export default function homePage() {
           <a
             target="_blank"
             rel="noreferrer"
-            className={buttonVariants({ variant: "default", size: "lg" })}
+            className={buttonVariants({ variant: "outline", size: "lg" })}
             href="https://github.com/soheilghanbary/picsearch"
           >
             GitHub

@@ -4,9 +4,9 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { useAtomValue } from "jotai";
 import { useInView } from "react-intersection-observer";
 import { Toaster } from "sonner";
-import ProductSkeleton from "./product-skeleton";
+import ProductSkeleton from "./photo-skeleton";
 import { useEffect } from "react";
-import PhotoItem from "./product-item";
+import PhotoItem from "./photo-item";
 import PhotoView from "./photo-view";
 
 const API_KEY = process.env.API_KEY;
@@ -33,7 +33,6 @@ const RQPhotoList = () => {
     fetchNextPage,
     hasNextPage,
     isLoading,
-    isSuccess,
     isError,
     data: photos,
   } = useInfiniteQuery(
@@ -75,7 +74,6 @@ const RQPhotoList = () => {
       <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-4 mb-10">
         {hasNextPage && photos?.pages[0].length ? <ProductSkeleton /> : ""}
       </section>
-
       <Toaster position="bottom-left" richColors />
     </>
   );
