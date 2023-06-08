@@ -1,8 +1,8 @@
-import PhotoList from "@/components/photo-list";
+import QueryProvider from "@/components/query-provider";
+import RQPhotoList from "@/components/rq-product-list";
 import ScrollToTop from "@/components/scroll-top";
 import Search from "@/components/search";
 import { buttonVariants } from "@/components/ui/button";
-import { Suspense } from "react";
 
 export default function homePage() {
   return (
@@ -34,9 +34,9 @@ export default function homePage() {
         </div>
       </section>
       <Search />
-      <Suspense fallback={<p>Loading Photo</p>}>
-        <PhotoList />
-      </Suspense>
+      <QueryProvider>
+        <RQPhotoList />
+      </QueryProvider>
       <ScrollToTop />
     </div>
   );
